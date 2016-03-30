@@ -1,0 +1,53 @@
+﻿<Page
+    x:Class="VideoTether_MKR1000_WinClient.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:VideoTether_MKR1000_WinClient"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" FontSize="40" FontWeight="Bold">
+            Video Tether
+        </TextBlock>
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Margin="10" FontSize="20">Address</TextBlock>
+        <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Name="Address" BorderThickness="1" Margin="10" FontSize="20" Text="http://0.0.0.0"></TextBox>
+
+        <TextBlock Grid.Row="2" Grid.Column="0" Margin="10" FontSize="20">Distance</TextBlock>
+        <TextBox Grid.Row="2" Grid.Column="1" Name="Distance" BorderThickness="1" Margin="10" FontSize="20" Text="0" TextChanged="NumericTextBox_TextChanged"></TextBox>
+        <ComboBox Grid.Row="2" Grid.Column="2" Name="Distance_mm_multiplier" Margin="10" FontSize="20">
+            <ComboBoxItem Tag="25.4" IsSelected="True">in</ComboBoxItem>
+            <ComboBoxItem Tag="304.8">ft</ComboBoxItem>
+            <ComboBoxItem Tag="1">mm</ComboBoxItem>
+            <ComboBoxItem Tag="1000">m</ComboBoxItem>
+        </ComboBox>
+
+        <TextBlock Grid.Row="3" Grid.Column="0" Margin="10" FontSize="20">Time</TextBlock>
+        <TextBox Grid.Row="3" Grid.Column="1" Name="Duration" BorderThickness="1" Margin="10" FontSize="20" Text="0" TextChanged="NumericTextBox_TextChanged"></TextBox>
+        <ComboBox Grid.Row="3" Grid.Column="2" Name="Duration_sec_multiplier" Margin="10" FontSize="20">
+            <ComboBoxItem Tag="1">sec</ComboBoxItem>
+            <ComboBoxItem Tag="60" IsSelected="True">min</ComboBoxItem>
+            <ComboBoxItem Tag="3600">hr</ComboBoxItem>
+        </ComboBox>
+
+        <Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" Margin="20" FontSize="30" Click="Start_Click" Name="Start">Start</Button>
+        
+        <TextBlock Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" Name="Error" HorizontalAlignment="Center" TextWrapping="Wrap" FontSize="20" Foreground="Red"></TextBlock>
+    </Grid>
+</Page>
